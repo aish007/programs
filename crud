@@ -1,0 +1,70 @@
+=begin
+description : to add,delete, read and update movie rating 
+author Aishvarya Vardhan
+date 5th Feb,2015
+=end
+
+puts"enter choice"
+puts"1:add movie"
+puts"2:delete movie"
+puts"3:update movie"
+puts"4:view movie rating"
+puts"5:exit"
+ch=gets.chomp
+movie_h=
+{
+ "one"=>"1",
+ "two"=>"2"
+}
+until ch==5
+case ch
+#to add movie with rating
+when '1'
+puts "enter a movie name"
+movie=gets.chomp
+if movie_h.has_key?(movie) 
+   puts "movie available"
+else 
+   puts "enter movie rating"
+   rating=gets.chomp
+   movie_h.store(movie,rating)
+   puts "movie added successfully"
+end
+#to delete movie name
+when '2'
+puts "enter movie name to be deleted"
+movie=gets.chomp
+if movie_h.has_key?(movie) 
+   puts "movie available"
+   movie_h.delete(movie)
+   puts "successfully deleted" 
+else
+   puts "movie unavailable"
+end
+#to update rating
+when '3'
+   puts "enter a movie name to be updated"
+   movie=gets.chomp
+if movie_h.has_key?(movie) 
+   puts "movie available update the rating"
+   rating=gets.chomp
+   movie_h.store(movie,rating)
+   puts movie_h
+   puts "successfully updated" 
+else
+   puts "movie unavailable"
+end
+#to view only
+when '4'
+   puts "display the movie name and rating"
+   puts movie_h
+#to exit
+when '5'
+puts"exit"
+break;
+else
+    puts "wrong choice"
+end
+puts "select a choice"
+    ch=gets.chomp
+end
