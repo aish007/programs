@@ -1,0 +1,4 @@
+class Micropost < ActiveRecord::Base
+validates :coontent, length: { maximum: 140 }
+validates :coontent,presence: true
+end
